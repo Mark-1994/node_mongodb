@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>首页</title>
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/index.css">
+</head>
+
+<body>
+    <header>
+        <img src="images/邮件.png" alt="">
+        <div>
+            <img src="images/headerLogo.png" alt="">
+        </div>
+        <img src="images/效果图2_03.png" alt="">
+    </header>
+    <div class="focus">
+        <img src="images/fe.png" alt="">
+    </div>
+    <div class="jobClass">
+        <h3>· 就 业 课 ·</h3>
+        <ul>
+            <li>
+                <a href="javascript:;"></a>
+            </li>
+            <li>
+                <a href="javascript:;"></a>
+            </li>
+            <li>
+                <a href="javascript:;"></a>
+            </li>
+            <li>
+                <a href="javascript:;"></a>
+            </li>
+            <li>
+                <a href="javascript:;"></a>
+            </li>
+            <li>
+                <a href="javascript:;"></a>
+            </li>
+        </ul>
+    </div>
+    <div class="jobClass weClass">
+        <h3>· 微 课 ·</h3>
+        <ul>
+            
+        </ul>
+    </div>
+    <div class="bottomNav">
+        <a href="/index">首页1</a>
+        <a href="/category">分类</a>
+    </div>
+
+    <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script>
+        $(function() {
+            $.ajax({
+                type: 'get',
+                url: 'http://localhost:3001/index',
+                success: function(response) {
+                    // console.log(response);
+
+                    for (var i = 0; i < response.length; i++) {
+                        $('.weClass>ul').append('<li><a href="javascript:;"><img src="'+response[i].img+'" alt=""><h3>'+response[i].name+'</h3><span>'+response[i].count+'人学习</span><span class="floatRight">￥'+response[i].price+'</span></a></li>')
+                    }
+
+                },
+                error: function(xhr) {
+                    console.log(xhr);
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
